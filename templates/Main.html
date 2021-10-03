@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{   
+        font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+        margin: 2em;
+        }
+        a{
+            font-size: 24px;
+            border: black;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+            font-family: Arial, Helvetica, sans-serif;
+
+            }
+
+        .navbar a {
+            float: left;
+            padding: 12px;
+            color: rgb(255, 255, 255);
+            font: bold;
+            text-decoration: none;
+            font-size: 20px;
+            }
+
+        .navbar a:hover {
+            background-color: #000;
+            }
+
+        .active {
+            background-color: #04AA6D;
+            }
+
+        @media screen and (max-width: 500px) {
+            .navbar a {
+                float: none;
+                display: block;
+            }
+            }
+        h1{
+            font: bold;
+        }
+        #Note{
+            background-color: yellow;
+        }
+    </style>
+    <header>
+        <div class="navbar" style="background-image: url(/static/clock2.jpg);">
+            <h1>TimeBoard</h1>
+                <a class="active" href="Main.html"><i class="fa fa-home"></i>Home</a>
+                <a href="About.html"><i class="fa fa-user"></i>About</a>
+                <a href="Calender.html"><i class="fa fa-calender"></i>Calender</a>
+        </div>
+    </header>
+    <head>
+        <title>TimeBoard</title>
+        <h3>this is a small web app that will make timetables with a style like a to-do list(like Trello and ect..)</h3>
+        <p id="Note">NOTE: This Is Still In BETA</p>
+        <p id="Note">if there are any bugs or improvements to make tell me</p>
+        <a href="Calender.html">To calender</a>
+    </head>
+</html>

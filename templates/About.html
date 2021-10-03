@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+        .navbar a {
+            float: left;
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            }
+
+        .navbar a:hover {
+            background-color: #000;
+            }
+
+        .active {
+            background-color: #04AA6D;
+            }
+
+        @media screen and (max-width: 500px) {
+            .navbar a {
+                float: none;
+                display: block;
+            }
+            }
+        #Title{
+            color: white;
+        }
+        #Main{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+    </style>
+    <header>
+        <div class="navbar" style="background-image: url(/static/clock.jpg);">
+            <h2 id="Title">TimeBoard</h2>
+            <a href="Main.html"><i class="fa fa-home"></i>Home</a>
+            <a class="active" href="About.html"><i class="fa fa-user"></i>About</a>
+            <a href="Calender.html"><i class="fa fa-calender" style="font-size:24px"></i>Calender</a>
+        </div>
+    </header>
+    <head>
+        <title>TimeBoard</title>
+        <div id="Main">
+            <h1>About</h1>
+            <p>This was made by Sasen Perera 2021</p><br>
+            <h2>How To Use the TimeBoard</h2>
+            <p>On the Timecards click the <strong>"Edit/New"</strong> link then you will be directed to the New Event page Now you need to do is put the name and the date and the time click submit and your done!!</p><br>
+            <h3>This Was Made for TadHack Teens 2021 Hackathon</h3>
+        </div>
+    </head>
+</html>

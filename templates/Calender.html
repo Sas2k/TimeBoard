@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <div class="navbar" style="background-image: url(/static/clock.jpg);">
+            <h2>TimeBoard</h2>
+            <a href="Main.html"><i class="fa fa-home"></i>Home</a>
+            <a href="About.html"><i class="fa fa-user"></i>About</a>
+            <a class="active" href="Calender.html"><i class="fa fa-calender"></i>Calender</a>
+        </div>
+    </header>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>TimeBoard</title>
+        <h1>Calender</h1>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--
+            *Author: Sasen Perera
+            TODO:1|Fnish Styling
+            TODO:2|Fix Name Bug
+            ! DO NOT add a another timecard before redesigning the system !
+         -->
+        <style>
+            body {
+                font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+                margin: 2em;
+            }
+
+            .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .navbar a {
+            float: left;
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            }
+
+            .navbar a:hover {
+            background-color: #000;
+            }
+
+            .active {
+            background-color: #04AA6D;
+            }
+
+            @media screen and (max-width: 500px) {
+            .navbar a {
+                float: none;
+                display: block;
+            }
+            }
+            
+            .container {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 10px;
+            }
+            
+            .box {
+                border: 3px solid #666;
+                background-color: #ddd;
+                border-radius: .5em;
+                padding: 10px;
+                cursor: move;
+            }
+        
+            .box.over {
+                border: 3px dotted #666;
+            }
+            
+            [draggable] {
+                user-select: none;
+            }
+            h2{
+                color: white;
+                text-align: center;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+
+			  var dragSrcEl = null;
+			  
+			  function handleDragStart(e) {
+				this.style.opacity = '0.4';
+				
+				dragSrcEl = this;
+
+				e.dataTransfer.effectAllowed = 'move';
+				e.dataTransfer.setData('text/html', this.innerHTML);
+			  }
+
+			  function handleDragOver(e) {
+				if (e.preventDefault) {
+				  e.preventDefault();
+				}
+
+				e.dataTransfer.dropEffect = 'move';
+				
+				return false;
+			  }
+
+			  function handleDragEnter(e) {
+				this.classList.add('over');
+			  }
+
+			  function handleDragLeave(e) {
+				this.classList.remove('over');
+			  }
+
+			  function handleDrop(e) {
+				if (e.stopPropagation) {
+				  e.stopPropagation(); // stops the browser from redirecting.
+				}
+				
+				if (dragSrcEl != this) {
+				  dragSrcEl.innerHTML = this.innerHTML;
+				  this.innerHTML = e.dataTransfer.getData('text/html');
+				}
+				
+				return false;
+			  }
+
+			  function handleDragEnd(e) {
+				this.style.opacity = '1';
+				
+				items.forEach(function (item) {
+				  item.classList.remove('over');
+				});
+			  }
+			  
+			  
+			  let items = document.querySelectorAll('.container .box');
+			  items.forEach(function(item) {
+				item.addEventListener('dragstart', handleDragStart, false);
+				item.addEventListener('dragenter', handleDragEnter, false);
+				item.addEventListener('dragover', handleDragOver, false);
+				item.addEventListener('dragleave', handleDragLeave, false);
+				item.addEventListener('drop', handleDrop, false);
+				item.addEventListener('dragend', handleDragEnd, false);
+			  });
+			});
+        </script>
+      </head>  
+      <body>
+        <!--*Timecard Code-->
+        <div class="container">
+            <div draggable="true" class="box">
+                {% if name %}
+                <a href="New_Event.html">Edit/New</a>
+                {% else %}
+                <!--*fix name bug-->
+                <p>{{name}}</p>
+                <p>{{Time}}</p>
+                <p>{{date}}</p>
+                <a href="New_Event.html">Edit/New</a>
+                {% endif %}
+            </div>
+			<div draggable="true" class="box">
+                <p>event02</p>
+                <p>10:30 AM</p>
+                <p>2021:09:xx</p>
+            </div>
+			<div draggable="true" class="box">
+                <p>event03</p>
+                <p>12:00 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+        </div>
+        <!--*============*-->
+        <!--*===example use only===*-->
+        <div class="container">
+            <div draggable="true" class="box">
+                <p>event04</p>
+                <p>1:30 PM</p>
+                <p>2021:09:xx</p>
+            </div>
+			<div draggable="true" class="box">
+                <p>event05</p>
+                <p>2:00 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+			<div draggable="true" class="box">
+                <p>event06</p>
+                <p>3:00 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+        </div>
+        <div class="container">
+            <div draggable="true" class="box">
+                <p>event07</p>
+                <p>4:05 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+			<div draggable="true" class="box">
+                <p>event08</p>
+                <p>5:00 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+			<div draggable="true" class="box">
+                <p>event09</p>
+                <p>6:00 pm</p>
+                <p>2021:09:xx</p>
+            </div>
+        </div>
+        <!--*======================*-->
+      </body>
+</html>

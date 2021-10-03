@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <div class="navbar" style="background-image: url(/static/clock.jpg);">
+        <h2>TimeBoard</h2>
+        <a href="Main.html"><i class="fa fa-home"></i>Home</a>
+        <a href="About.html"><i class="fa fa-user"></i>About</a>
+        <a href="Calender.html"><i class="fa fa-calender" style="font-size:24px"></i>Calender</a>
+        <a class="active" href="New_Event.html">New Event</a>
+    </div>
+    <link rel="icon" href="TimeBoard Logo.png" type="image/png" sizes="128X128">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TimeBoard</title>
+    <h1>New Event</h1>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+            margin: 2em;
+        }
+
+        .navbar {
+        width: 100%;
+        background-color: #555;
+        overflow: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+        float: left;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        }
+
+        .navbar a:hover {
+        background-color: #000;
+        }
+
+        .active {
+        background-color: #04AA6D;
+        }
+
+        @media screen and (max-width: 500px) {
+        .navbar a {
+            float: none;
+            display: block;
+        }
+        }
+    </style>
+    <form action="/Calender.html" method="POST">
+        <label for="Name">Event Name:</label><br>
+        <input type="text" id="Name" value="name"><br>
+		<label for="Date">Date:</label><br>
+		<input type="date" id="date" name="date"><br>
+        <label for="Time" id="time" name="time"></label><br>
+        <input type="time" id="time" name='time'><br><br>
+		<input type="submit" value="Submit">
+    </form>
+    <a href="Calender.html">Cancel</a>
+</html>
