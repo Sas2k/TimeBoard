@@ -17,9 +17,9 @@ app.secret_key = 'qwertyuioplkjhgfdsazxcvbnm1029384756'
 #TODO|3|Make a time detection system
 #*done|4|Figure out the SMS A.P.I.
 #!Not Possible for now|5|Make a timecard system so the second time card doesn't reset
-@app.route('/Main.html')
+@app.route('/index.html')
 def Main():
-   return render_template('Main.html')
+   return render_template('index.html')
 @app.route('/Calender.html', methods=["POST", "GET"])
 def Calender():
    if request.method == 'POST':
