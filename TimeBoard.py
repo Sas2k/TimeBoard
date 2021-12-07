@@ -3,7 +3,7 @@
 #after hackathon dev time - yyyy/mm/dd - last updated after hackathon
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 #from flask_ngrok import run_with_ngrok
-import requests
+#import requests
 
 # from flask_mail import*
 # from datetime import timedelta
@@ -26,9 +26,9 @@ def Calender():
       global name
       global Time
       global date
-      name = request.form.get('Name')
+      name = request.form.get('name')
       Time = request.form.get('time')
-      date = request.form.get('date')
+      date = request.form.get('Date')
 
       session["name"] = name
       session["Time"] = Time
@@ -53,7 +53,7 @@ def about():
 def new_event():
    return render_template('New_Event.html')
 def submit():
-   url = "http://localhost:5678/sms/send"
+   '''url = "http://localhost:5678/sms/send"
 
    payload = "{\r\n\"version\": \"1.0\",\r\n\"applicationId\": \"APP_062045\",\r\n\"password\": \"c81529eb84b29dfb5a32af3978c5c6ef\",\r\n\"message\": \"Hello you have made an event on TimeBoard\",\r\n\"destinationAddresses\": [\r\n\"tel:94740050462\"\r\n],\r\n\"sourceAddress\": \"77000\",\r\n\"deliveryStatusRequest\": \"1\",\r\n\"encoding\": \"245\",\r\n\"binaryHeader\": \"526574697265206170706c69636174696f6e20616e642072656c6561736520524b7320696620666f756e642065787069726564\"\r\n}"
    headers = {
@@ -62,7 +62,7 @@ def submit():
 
    response = requests.request("POST", url, headers=headers, data=payload)
 
-   print(response.text)
+   print(response.text)'''
    print('sms sent')
    return redirect('Calender.html')
 
